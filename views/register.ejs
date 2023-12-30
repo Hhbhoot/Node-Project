@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 
 <head>
 
@@ -7,29 +7,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
     <style>
-        div {
-            
-            display: flexbox;
-            border-color: black;
-        }
-        h1{
-            display: flex;
-        }
+        form {
+    font-family: Arial, sans-serif;
+    /* margin: 0;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0; */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    background-color:bisque;
+}
+form {
+    display:flexbox;
+    flex-direction: column;
+}
+h1{
+    
+  margin: auto;
+  /* width: 50%; */
+  border: solid black 2px;
+  text-align: center;
+  border-radius: 25pc;
+  background-color: rgb(204, 106, 20);
+
+}
+    
+
+
+label {
+    margin-bottom: 8px;
+}
+
+input {
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+#button{
+
+    height: 2pc;
+    width: 5pc;
+    border-radius: 10px;
+}
+
+    
+
+
+
     </style>
+   
 </head>
 
 <body>
     <h1>Register Here</h1>
-    <div>
+    
     <form action="/signup" method="post">
     <label for="firstName"> First Name </label>
-    <input type="text" id="firstName" name="firstname" value="" placeholder="Enter First Name"><br><br>
+    <input type="text" id="firstName" name="firstname" value="" placeholder="Enter First Name">
     <label for="lastname">Last Name</label>
-    <input type="text" id="lastname" name="lastname" value="" placeholder="Enter Last Name"><br><br>
+    <input type="text" id="lastname" name="lastname" value="" placeholder="Enter Last Name">
     <label for="email">Email</label>
-    <input type="text" id="emial" name="email" value="" placeholder="Enter Email Here"><br><br>
-    <button type="submit"> signup </button>
+    <input type="text" id="email" name="email" value="" placeholder="Enter Email Here">
+    <label for="username"> Username</label>
+    <input type="text" id="username" name ="username"  value="" placeholder="Enter Username"> 
+    <label for="password"> Password</label>
+    <input type="text" id="password" name="password" value="" placeholder="Enter Password">
+    <button type="submit" id="button"> signup </button> 
     </form>
+    
+    
 </body>
-
 </html>
+
