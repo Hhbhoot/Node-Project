@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
  const {upload} = require('../helpers/imageupload');
  const cookieParser = require('cookie-parser');
  const nodemailer = require('nodemailer');
- const config = require('../config');
+ const config = require('../config/config');
 
 exports.signup = async (req, res) => {
   try {
