@@ -16,12 +16,17 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    image :[{
+        type : String,
+    }],
     price: {
         type: Number,
         required: true
     },
     created_at:
-        { type: Date },
+        { type: Date, 
+         default : Date.now()
+        },
     updated_at:
     {
         type: Date,

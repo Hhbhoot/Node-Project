@@ -8,9 +8,9 @@ const port = process.env.PORT;
 const connectDB = require('./connection');
 const userRoutes = require('./Routes/user.routes')
 const imagepath = path.join(__dirname,'public/images');
-
-
 const morgan = require("morgan");
+const productRoutes = require('./Routes/product.routes');
+
 app.use('/public/images',express.static(imagepath))
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname,'./views/users'))
@@ -19,7 +19,8 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }))
 
-app.use('/',userRoutes)
+app.use('/',userRoutes);
+app.use('/admin/product' ,productRoutes)
 
 
 app.listen(port, (err) => {

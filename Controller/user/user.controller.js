@@ -1,10 +1,9 @@
-const User = require("../Model/user.model");
+const User = require("../../Model/user.model");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
- const {upload} = require('../helpers/imageupload');
  const cookieParser = require('cookie-parser');
  const nodemailer = require('nodemailer');
- const config = require('../config/config');
+ const config = require('../../config/config');
 
 exports.signup = async (req, res) => {
   try {
