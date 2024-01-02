@@ -1,4 +1,4 @@
-exports.forgotPassword = async(req,res)=>{
+exports.renderResetPassword = async(req,res)=>{
 
     res.render('setpassword');
   };

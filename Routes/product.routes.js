@@ -8,4 +8,6 @@ productRoutes.post('/addproduct',upload.single('image'),addProduct);
 productRoutes.post('/updateproduct',updateProduct);
 productRoutes.post('/deleteproduct',deleteProduct);
 
+
+
 module.exports = productRoutes ;

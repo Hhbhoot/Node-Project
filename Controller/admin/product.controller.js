@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Product = require('../../Model/product.model');
 
-exports.addProduct = async (req, res) => {
+exports.addProduct = async (req, res) => { 
     try {
         const { name, category, description, image, price } = req.body;
         let product = await Product.findOne({ name: name, isDelete: false })

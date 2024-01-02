@@ -1,5 +1,4 @@
 require('dotenv').config();
-const mongoose = require('mongoose');
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -10,6 +9,7 @@ const userRoutes = require('./Routes/user.routes')
 const imagepath = path.join(__dirname,'public/images');
 const morgan = require("morgan");
 const productRoutes = require('./Routes/product.routes');
+const cartRoutes = require('./Routes/cart.routes');
 
 app.use('/public/images',express.static(imagepath))
 app.set('view engine', 'ejs');
@@ -20,7 +20,8 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }))
 
 app.use('/',userRoutes);
-app.use('/admin/product' ,productRoutes)
+app.use('/admin/product' ,productRoutes);
+app.use('/user/cart',cartRoutes);
 
 
 app.listen(port, (err) => {
