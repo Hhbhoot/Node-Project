@@ -158,3 +158,54 @@ exports.resetPassword = async (req, res) => {
     res.json({ message: "Internal server error.." });
   }
 };
+
+exports.updateProfile = async (req ,res)=>{
+  try {
+    // console.log(req.user)
+    let filepath ;
+    if(req.file){
+      filepath = `${req.file.path.replace(/\\/g,'/')}`;
+    }  
+    
+    let user = await User.findByIdAndUpdate( req.user._id ,{ $set : { ...req.body }, image : filepath },{new : true})
+    user.save();
+    console.log(user)
+    if(user){
+        return res.json({ message : " User updated Successfully"})
+    }
+    else{
+      return res.json({ message : "User not Found.."})
+    }
+  
+  } catch (error) {
+     console.log(error);
+     return res.json({ message : "internal server Error... "})
+  }
+}
+exports.changePassword = async(req,res)=>{
+  try {
+        const { password , newPassword , confirmNewPassword} = req.body;
+
+        if(newPassword === confirmNewPassword){
+          if(password != newPassword){
+
+            let salt= 10 ;
+            let hashPassword = await bcrypt.hash(newPassword,salt);
+             
+             let user = await User.findByIdAndUpdate(req.user._id,{ $set : { password : hashPassword}})
+             if(user){
+              return res.json({ message : "Password Updated Successfully..."})
+             }
+             
+        }
+        else{
+          return res.json({ message : "current password and newpassword can not be same.."})
+        }
+     }else{
+         return res.json({ message : "newpassword and confirmnewpassword are not matching.."})
+     }
+  } catch (error) {
+     console.log(error)
+     return res.json({message : "Internal Server Error.."})
+  }
+}

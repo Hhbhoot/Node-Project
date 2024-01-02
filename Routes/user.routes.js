@@ -1,5 +1,5 @@
 const express = require('express');
-const {  signup,  userLogin,  resetPassword, forgotPassword } = require('../Controller/user/user.controller');
+const {  signup,  userLogin,  resetPassword, forgotPassword, updateProfile, changePassword } = require('../Controller/user/user.controller');
 const userRoutes = express.Router();
 const {verifyToken} = require('../Helpers/verifyToken');
 const { register} = require('../views/rendor/registerPage')
@@ -19,5 +19,9 @@ userRoutes.post('/forgotpassword',forgotPassword);
 
 userRoutes.get('/resetpassword',renderResetPassword)
 userRoutes.post('/resetpassword',resetPassword);
+
+userRoutes.put('/updateprofile',verifyToken,upload.single("image"),updateProfile);
+userRoutes.put('/changepassword',verifyToken,changePassword);
+
 
 module.exports = userRoutes;
