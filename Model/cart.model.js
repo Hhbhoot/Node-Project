@@ -23,8 +23,8 @@ const cartSchema = new mongoose.Schema({
   },
   isDelete: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 });
 
-module.exports = mongoose.model('cart',cartSchema);
+module.exports = mongoose.model("cart", cartSchema);

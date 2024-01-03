@@ -8,8 +8,10 @@ const connectDB = require('./connection');
 const userRoutes = require('./Routes/user.routes')
 const imagepath = path.join(__dirname,'public/images');
 const morgan = require("morgan");
-const productRoutes = require('./Routes/product.routes');
+
 const cartRoutes = require('./Routes/cart.routes');
+const adminRoutes = require('./Routes/admin.routes');
+const orderRoutes = require('./Routes/order.routes');
 
 app.use('/public/images',express.static(imagepath))
 app.set('view engine', 'ejs');
@@ -20,8 +22,9 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }))
 
 app.use('/',userRoutes);
-app.use('/admin/product' ,productRoutes);
 app.use('/user/cart',cartRoutes);
+app.use('/admin',adminRoutes);
+app.use('/order',orderRoutes);
 
 
 app.listen(port, (err) => {
