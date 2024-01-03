@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema({
 
     firstname: {
         type: String,
-         required: true,
+        required: true,
     },
     lastname: {
         type: String,
@@ -16,8 +16,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         lowercase: true,
         unique: true,
-         required: true,
-         match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
+        required: true,
+        match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
         index: true
     },
     email: {
@@ -25,25 +25,29 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         unique: true,
         required: true,
-         match: [/\S+@\S+\.\S+/, 'is invalid'],
+        match: [/\S+@\S+\.\S+/, 'is invalid'],
         index: true
     },
 
     password: {
         type: String,
-         required: true
+        required: true
     },
     token: {
         type: String,
-         
+
 
     },
-    image : {
-        type : String
+    image: {
+        type: String
     },
-    isDelete : {
-        type : Boolean,
-        default : false
+    is_Admin: {
+        type: Boolean,
+        default: false
+    },
+    isDelete: {
+        type: Boolean,
+        default: false
     }
 });
 

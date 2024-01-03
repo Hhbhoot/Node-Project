@@ -1,8 +1,8 @@
-const User = require("../../Model/user.model");
+const User = require("../Model/user.model")
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const nodemailer = require("nodemailer");
-const { resetPasswordSendMail} = require('../../Helpers/nodemailler');
+
+const { resetPasswordSendMail} = require('../Helpers/nodemailler');
 
 exports.signup = async (req, res) => {
   try {

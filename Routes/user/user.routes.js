@@ -1,12 +1,12 @@
 const express = require('express');
-const {  signup,  userLogin,  resetPassword, forgotPassword, updateProfile, changePassword } = require('../Controller/user/user.controller');
+const {  signup,  userLogin,  resetPassword, forgotPassword, updateProfile, changePassword } = require('../../Controller/user.controller');
 const userRoutes = express.Router();
-const {verifyToken} = require('../Helpers/verifyToken');
-const { register} = require('../views/rendor/registerPage')
-const { login } = require('../views/rendor/loginPage');
-const { rendorForgotPassword } = require('../views/rendor/forgot-password');
-const { upload } = require("../Helpers/imageupload");
-const { renderResetPassword } = require('../views/rendor/resetPassword');
+const {verifyToken} = require('../../Helpers/verifyToken');
+const { register} = require('../../views/rendor/registerPage')
+const { login } = require('../../views/rendor/loginPage');
+const { rendorForgotPassword } = require('../../views/rendor/forgot-password');
+const { upload } = require("../../Helpers/imageupload");
+const { renderResetPassword } = require('../../views/rendor/resetPassword');
 
 
 userRoutes.get('/register',register);

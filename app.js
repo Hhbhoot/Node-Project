@@ -5,13 +5,17 @@ const app = express();
 const cookieParser = require('cookie-parser')
 const port = process.env.PORT;
 const connectDB = require('./connection');
-const userRoutes = require('./Routes/user.routes')
 const imagepath = path.join(__dirname,'public/images');
 const morgan = require("morgan");
 
-const cartRoutes = require('./Routes/cart.routes');
-const adminRoutes = require('./Routes/admin.routes');
-const orderRoutes = require('./Routes/order.routes');
+const cartRoutes = require('./Routes/user/cart.routes');
+const userRoutes = require('./Routes/user/user.routes')
+const orderRoutes = require('./Routes/user/order.routes');
+
+// const admin = require('./Routes/admin/index');
+const user = require('./Routes/user/index.routes');
+
+// const adminRoutes = require('./Routes/admin')
 
 app.use('/public/images',express.static(imagepath))
 app.set('view engine', 'ejs');
@@ -21,11 +25,11 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }))
 
-app.use('/',userRoutes);
+app.use('/',user);
 app.use('/user/cart',cartRoutes);
-app.use('/admin',adminRoutes);
 app.use('/order',orderRoutes);
 
+// app.use('/admin',admin);
 
 app.listen(port, (err) => {
     if (err) {
