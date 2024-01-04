@@ -35,15 +35,15 @@ const userSchema = new mongoose.Schema({
     },
     token: {
         type: String,
-
-
     },
     image: {
         type: String
     },
-    is_Admin: {
-        type: Boolean,
-        default: false
+    is_admin: {
+        type : String,
+        enum : ['on','off'],
+        default : 'off'
+        
     },
     isDelete: {
         type: Boolean,

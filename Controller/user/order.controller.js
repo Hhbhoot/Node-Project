@@ -1,4 +1,3 @@
-const cartModel = require("../../Model/cart.model");
 const Order = require("../../Model/order.model");
 const Cart = require("../../Model/cart.model");
 

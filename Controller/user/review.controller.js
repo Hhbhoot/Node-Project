@@ -1,6 +1,6 @@
 const Review = require("../../Model/review.model");
 const Product = require("../../Model/product.model");
-const { getAllUserCarts } = require("../admin/admin.controller");
+const { avgRating } = require('../../Helpers/avg_rating')
 
 exports.reviewProduct = async (req, res) => {
   try {
@@ -28,7 +28,7 @@ exports.reviewProduct = async (req, res) => {
       rating: rating,
     });
     await review.save();
-
+    //  avgRating(productId);
     const allrating = await Review.find({ cartitem: productId });
     console.log(allrating);
     let totalrating = allrating.length;
@@ -37,18 +37,19 @@ exports.reviewProduct = async (req, res) => {
     let ratingsum = allrating.map((item) => ({
       rating: item.rating,
     }));
+    
     console.log(ratingsum);
     let total = ratingsum.reduce((total, item) => (total += item.rating), 0);
     console.log(total);
     let avg_rating = total / totalrating;
     console.log(avg_rating);
 
-    review = await Review.findOneAndUpdate(
+    review = await Review.updateMany(
       { cartitem: productId },
       { $set: { avg_rating: avg_rating } },
       { new: true }
     );
-    review.save();
+    // await review.save();
 
     return res
       .status(201)
