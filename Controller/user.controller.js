@@ -1,7 +1,6 @@
 const User = require("../Model/user.model")
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-
 const { resetPasswordSendMail} = require('../Helpers/nodemailler');
 
 exports.signup = async (req, res) => {
@@ -30,6 +29,7 @@ exports.signup = async (req, res) => {
         email: req.body.email,
         password: hashPassword,
         image: image,
+        is_Admin : req.body.is_Admin
       });
 
       let payload = {
