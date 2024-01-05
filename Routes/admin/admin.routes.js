@@ -3,7 +3,6 @@ const {
   getAllUser,
   getSpecificUser,
 } = require("../../Controller/admin/admin.controller");
-
 const adminRoutes = express.Router();
 
 adminRoutes.get("/getalluser", getAllUser);

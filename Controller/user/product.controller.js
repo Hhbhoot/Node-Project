@@ -2,26 +2,35 @@ const Product = require('../../Model/product.model')
 
 exports.getAllProducts = async (req, res) => {
   try {
-       let product = await Product.find();
-       if(product){
-             return res.json(product);
-       }
-       else{
-        return res.json({message : "Products not found.."})
-       }
-   
-    //  let product = Product.find([{
-    //     $lookup: {
-    //         from: "reviews",
-    //         localField: "name",
-    //         foreignField: "name",
-    //         as: "Reviews"
-    //       }
-          
-    //  }])
-     return res.json(product);
+      //  let product = await Product.find()
+      //  if(product){
+      //        return res.json(product);
+      //  }
+      //  else{
+      //   return res.json({message : "Products not found.."})
+      //  }
 
-  } catch (error) {
+      const product = await Product.aggregate([
+         {
+             $lookup: {
+                 from: "reviews",
+                 localField : 'name',
+                 foreignField : 'name', 
+                 as: "PrductReview"
+             } 
+         },
+         {
+            $project : {
+                'ProductReview._id' : 0 ,
+                'PrductReview.user' : 0 ,
+                'PrductReview.cartitem' : 0,
+            }
+         }
+ ]);
+ console.log(product)
+ return res.json(product)
+ } 
+  catch (error) {
     console.log(error);
     return res
       .status(200)
