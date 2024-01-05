@@ -10,7 +10,7 @@ const reviewSchema = new mongoose.Schema({
         type : mongoose.Schema.Types.ObjectId,
         ref : 'users'
     },
-    productname : {
+    name : {
         type : String,
         required : true
     },
@@ -33,6 +33,10 @@ const reviewSchema = new mongoose.Schema({
          min : 0 ,
          max : 5,
          default : 0
+     },
+     isDelete :{
+        type : Boolean,
+        default : false
      }
 });
 

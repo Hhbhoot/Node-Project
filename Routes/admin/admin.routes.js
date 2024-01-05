@@ -2,7 +2,7 @@ const express = require("express");
 const {
   getAllUser,
   getSpecificUser,
-} = require("../../Controller/admin/user.controller");
+} = require("../../Controller/admin/admin.controller");
 
 const adminRoutes = express.Router();
 
