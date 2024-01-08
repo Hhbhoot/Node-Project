@@ -18,7 +18,6 @@ exports.signup = async (req, res) => {
         // console.log(image);
       }
 
-
       let salt = 10;
       let hashPassword = await bcrypt.hash(req.body.password, salt);
 
