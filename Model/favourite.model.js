@@ -17,6 +17,10 @@ const favouriteSchema = new mongoose.Schema({
         type : mongoose.Schema.Types.ObjectId,
         ref : 'products'
         }],
+    image : [ {
+        type : String 
+    }],
+    
     price : {
         type : Number
     },

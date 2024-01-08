@@ -20,6 +20,7 @@ exports.addToFavourites = async (req, res) => {
       cartitem: cartitem,
       product: product.name,
       price: product.price,
+      image : product.image
     });
     favourite.save();
     return res.json({ message: "Item added into favourites successfully.." });
