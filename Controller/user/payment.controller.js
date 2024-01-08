@@ -8,8 +8,8 @@ exports.placeOrder = async (req,res)=>{
      let order = await Order.findById(orderId);
 
 var instance = new razorpay({
-  key_id: 'rzp_test_ybf4aUbkx3ougi',
-  key_secret: 'jKiMPNZGs0PABJtcdWn8SseQ',
+  key_id: 'rzp_test_uoZav7lL2WyJ1J',
+  key_secret: '7ygk8nxtArSVILDyMy1OWyO6',
 });
 
 
