@@ -12,21 +12,22 @@ exports.addToCart = async (req, res) => {
       cartitem: cartitem,
       user: req.user._id,
     });
-    console.log(isProduct);
+    // console.log(isProduct);
     if (isProduct) {
       return res.json({ message: "item already exists in cart" });
     }
 
     let product = await Product.findById(cartitem);
-    console.log(product);
+    // console.log(product);
     if (!product) {
       return res.json({ message: "Product Not Found.." });
-    }
-
+    };
+    
     let cart = await Cart.create({
       user: req.user._id,
       cartitem,
       quantity,
+      image : product.image
     });
     cart.save();
     return res.json({ message: "Item added successfully..", CartData: cart });
@@ -38,9 +39,7 @@ exports.addToCart = async (req, res) => {
 
 exports.getUserCart = async (req, res) => {
   try {
-    let cartItem = req.query.id;
-
-    // cartItem = new mongoose.Types.ObjectId(cartItem);
+    
 
     let userCart = await Cart.find({ user: req.user._id, isDelete: false });
     console.log(userCart);
