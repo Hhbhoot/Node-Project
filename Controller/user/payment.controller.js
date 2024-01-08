@@ -12,6 +12,7 @@ var instance = new razorpay({
   key_secret: 'jKiMPNZGs0PABJtcdWn8SseQ',
 });
 
+
 let options = {
     amount : order.totalamount * 100,
     currency : 'INR'
