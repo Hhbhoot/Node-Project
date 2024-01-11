@@ -11,7 +11,6 @@ const cartRoutes = require('./cart.routes');
 const reviewRoutes = require('./review.routes');
 const orderRoutes = require('./order.routes');
 
- 
 admin.use('/user',verifyToken,verifyAdmin,adminRoutes)
 admin.use('/products',verifyToken,verifyAdmin,productRoutes)
 admin.use('/cart',verifyToken,verifyAdmin,cartRoutes);
