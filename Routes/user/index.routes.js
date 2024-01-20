@@ -13,7 +13,7 @@ const paymentRoutes = require('./paymentt.routes');
 
 user.use('/cart' ,verifyToken, cartRoutes);
 user.use('/order' , verifyToken,orderRoutes);
-user.use('/' , verifyToken,userRoutes);
+user.use('/' ,userRoutes);
 user.use('/review' , verifyToken,reviewRoutes);
 user.use('/product',verifyToken,productRoutes);
 user.use('/favourites',favouriteRoutes);
