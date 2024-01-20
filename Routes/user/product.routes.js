@@ -1,5 +1,5 @@
 const express = require('express');
-const { verifyToken } = require('../../Helpers/verifyToken');
+const { verifyToken } = require('../../verifyToken');
 const { getAllProducts, getProduct } = require('../../Controller/user/product.controller');
 const productRoutes = express.Router();
 

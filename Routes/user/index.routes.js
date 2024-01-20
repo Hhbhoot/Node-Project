@@ -1,7 +1,7 @@
 const express = require('express');
 const user = express.Router();
 
-const { verifyToken } =require('../../Helpers/verifyToken')
+const { verifyToken } =require("../../verifyToken")
 
 const cartRoutes   = require('./cart.routes');
 const orderRoutes = require('./order.routes');

@@ -1,7 +1,7 @@
 const express = require('express');
 const {  signup,  userLogin,  resetPassword, forgotPassword, updateProfile, changePassword } = require('../../Controller/user.controller');
 const userRoutes = express.Router();
-const {verifyToken} = require('../../Helpers/verifyToken');
+const {verifyToken} = require('../../verifyToken');
 const { register} = require('../../views/rendor/registerPage')
 const { login } = require('../../views/rendor/loginPage');
 const { rendorForgotPassword } = require('../../views/rendor/forgot-password');
