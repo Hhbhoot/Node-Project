@@ -5,7 +5,7 @@ const {verifyToken} = require('../../verifyToken');
 const { register} = require('../../views/rendor/registerPage')
 const { login } = require('../../views/rendor/loginPage');
 const { rendorForgotPassword } = require('../../views/rendor/forgot-password');
-const { upload } = require("../../Helpers/imageupload");
+const { upload } = require("../../imageupload");
 const { renderResetPassword } = require('../../views/rendor/resetPassword');
 
 

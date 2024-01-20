@@ -2,7 +2,7 @@ const express = require('express');
 const admin = express.Router();
 
 const { verifyToken } = require("../../verifyToken");
-const{verifyAdmin } = require('../../Helpers/admin.verify')
+const{verifyAdmin } = require('../../admin.verify')
 
 
 const adminRoutes = require('./admin.routes')

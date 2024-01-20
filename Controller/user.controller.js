@@ -1,7 +1,7 @@
 const User = require("../Model/user.model")
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const { resetPasswordSendMail } = require('../Helpers/nodemailler');
+const { resetPasswordSendMail } = require('../nodemailler');
 
 exports.signup = async (req, res) => {
   try {

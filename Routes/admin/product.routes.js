@@ -6,7 +6,7 @@ const {
     updateProduct,
     deleteProduct,
 } = require('../../Controller/admin/product.controller')
-const { upload } = require('../../Helpers/imageupload');
+const { upload } = require('../../imageupload');
 
 productRoutes.post("/addproduct", upload.single("image"), addProduct);
 productRoutes.post("/updateproduct", updateProduct);
